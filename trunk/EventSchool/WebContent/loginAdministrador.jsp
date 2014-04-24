@@ -11,7 +11,7 @@
 	<div id="principal">
 		 <div id="top"></div>
 		 <div id="menuHeader">
-         	<a id="eventos" class="fontMenu" href="#">Eventos</a>
+         	<a id="eventos" class="fontMenu" href="/EventSchool/admin/eventos.jsp">Eventos</a>
            	<a id="contato" class="fontMenu" href="#">Contato</a>
          </div>
          <div id="corpo">
