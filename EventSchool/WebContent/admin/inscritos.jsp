@@ -1,3 +1,12 @@
+<%@page import="DB.InscricoesDAO"%>
+<%@page import="models.Inscricao"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="DB.AtividadeDAO"%>
+<%@page import="models.Atividade"%>
+<%@page import="java.util.List"%>
+<%@page import="DB.EventoDAO"%>
+<%@page import="models.Evento"%>
+<%@page import="models.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,57 +14,144 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>EventoSchool</title>
-<link href="css/inscritos.css" rel="stylesheet" type="text/css" />
+<link href="/EventSchool/css/inscritos.css" rel="stylesheet" type="text/css" />
 </head>
-<body> 
+<body>
+
+<% 
+	Usuario usuario = (Usuario)session.getAttribute("usuario");
+    int idEvento = Integer.parseInt(request.getParameter("cod"));
+    Evento evento = EventoDAO.pegarEvento(idEvento);
+    
+  	%>
+
 	<div id="principal">
 		 <div id="top"></div>
 		 <div id="menuHeader">
-         	<a id="eventos" class="fontMenu" href="#">Eventos</a>
+         	<a id="eventos" class="fontMenu" href="/EventSchool/admin/eventos.jsp">Eventos</a>
            	<a id="contato" class="fontMenu" href="#">Contato</a>
          </div>
          <div id="user">
-         	<div id="name" class="fontUser">Olá, Admin</div> 
+         	<div id="name" class="fontUser">Olá, <%=usuario.getNome() %></div> 
          	<div id="conta" class="fontUser">Conta</div>
          	<div id="sair" class="fontUser">Sair</div>
          </div>
          <div id="corpo">
          	<div align="center" id=menuLateral>
-         		<div id="atividade" class="fontMenuLateral">Atividades</div>
-         		<div id="configuracaoEvento" class="fontMenuLateral">Config. Evento</div>
-         		<div id="inscritos" class="fontMenuLateral">Inscritos</div>
+         		<div id="atividade"><a  class="fontMenuLateral" href="/EventSchool/admin/gerencia.jsp?cod=<%=idEvento%>">Atividades</a></div><br>
+         		<div id="configuracaoEvento"><a  class="fontMenuLateral">Config. Evento</a></div><br>
+         		<div id="inscritos"><a  class="fontMenuLateral" href="#">Inscritos</a></div><br>
          	</div>
          	<div id="loginUser">
          		
-         		<div id="acessar" align="center" class="fontTitulo">SECITEC 2014</div> 
+         		<div id="acessar" align="center" class="fontTitulo"><%=evento.getNome() %></div> 
          		
          		<div id="acessar" align="center" class="fontTitulo">Lista de Inscritos</div>
          		
-         		<div class="fontTitulo">Palestras:</div> 
+         		      		
+         		
+         		<div class="fontTitulo">Palestras:</div>
+         		<%
+         		List<Atividade> listaPalestrasEvento = AtividadeDAO.listaDePalestrasEvento(idEvento);
+				if(listaPalestrasEvento != null){ 
+				
+				%>
+				   	
 	         	<div id="tabelaAtividade">
 	         		<table>
-	         			<tr><td class="col1"><div class="fontTituloTabela">Nome</div></td><td class="col2"><div class="fontTituloTabela">Email</div></td><td class="col3"><div class="fontTituloTabela">Data Nascimento</div></td><td class="col4"><div class="fontTituloTabela">Opções</div></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3">c</td> <td class="col4"><a href="#">excluir</a></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3" >c</td> <td class="col4"><a href="#">excluir</a></td></tr>
+	         			<%
+ 	
+						Iterator<Atividade> it = listaPalestrasEvento.iterator();
+							while(it.hasNext()){
+								Atividade atividade = it.next();
+								out.println("<br><br>Palestra: " + atividade.getNome());
+								List<Inscricao> listaInscricaoAtividade =  InscricoesDAO.listaDeInscricaoAtividade(atividade);
+								if(listaInscricaoAtividade!= null){
+									Iterator<Inscricao> i = listaInscricaoAtividade.iterator();
+									while(i.hasNext()){
+										Inscricao inscricao = i.next();
+										out.println("<br>Inscrito: " + inscricao.getParticipante().getNome());
+									}
+								}
+								else{
+									out.println("sem inscrições");
+								}
+
+	         			}%>
 	         		</table>
+	         		<%}else{
+	         			out.println("Não existe inscrito");
+	         		}%>
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Minicursos:</div>
+	         	
+	         	<%
+         		List<Atividade> listaPalestrasMinicurso = AtividadeDAO.listaDeMinicursoEvento(idEvento);
+				if(listaPalestrasEvento != null){ 
+				
+				%>
+	         	
 	         	<div id="tabelaAtividade">
 	         		<table>
-	         			<tr><td class="col1"><div class="fontTituloTabela">Nome</div></td><td class="col2"><div class="fontTituloTabela">Email</div></td><td class="col3"><div class="fontTituloTabela">Data Nascimento</div></td><td class="col4"><div class="fontTituloTabela">Opções</div></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3">c</td> <td class="col4"><a href="#">excluir</a></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3" >c</td> <td class="col4"><a href="#">excluir</a></td></tr>
+	         			<%
+ 	
+						Iterator<Atividade> it = listaPalestrasMinicurso.iterator();
+							while(it.hasNext()){
+								Atividade atividade = it.next();
+								out.println("<br><br>Palestra: " + atividade.getNome());
+								List<Inscricao> listaInscricaoAtividade =  InscricoesDAO.listaDeInscricaoAtividade(atividade);
+								if(listaInscricaoAtividade!= null){
+									Iterator<Inscricao> i = listaInscricaoAtividade.iterator();
+									while(i.hasNext()){
+										Inscricao inscricao = i.next();
+										out.println("<br>Inscrito: " + inscricao.getParticipante().getNome());
+									}
+								}
+								else{
+									out.println("sem inscrições");
+								}
+
+	         			}%>
 	         		</table>
+	         		<%}else{
+	         			out.println("Não existe inscrito");
+	         		}%>
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Oficinas:</div>
+	         	
+	         	<%
+         		List<Atividade> listaPalestrasOficinas = AtividadeDAO.listaDeOficinaEvento(idEvento);
+				if(listaPalestrasEvento != null){ 
+				
+				%>
+	         	
 	         	<div id="tabelaAtividade">
 	         		<table>
-	         			<tr><td class="col1"><div class="fontTituloTabela">Nome</div></td><td class="col2"><div class="fontTituloTabela">Email</div></td><td class="col3"><div class="fontTituloTabela">Data Nascimento</div></td><td class="col4"><div class="fontTituloTabela">Opções</div></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3">c</td> <td class="col4"><a href="#">excluir</a></td></tr>
-	         			<tr><td class="col1">a</td> <td class="col2">b</td> <td class="col3" >c</td> <td class="col4"><a href="#">excluir</a></td></tr>
+	         			<%
+ 	
+						Iterator<Atividade> it = listaPalestrasEvento.iterator();
+							while(it.hasNext()){
+								Atividade atividade = it.next();
+								out.println("<br><br>Palestra: " + atividade.getNome());
+								List<Inscricao> listaInscricaoAtividade =  InscricoesDAO.listaDeInscricaoAtividade(atividade);
+								if(listaInscricaoAtividade!= null){
+									Iterator<Inscricao> i = listaInscricaoAtividade.iterator();
+									while(i.hasNext()){
+										Inscricao inscricao = i.next();
+										out.println("<br>Inscrito: " + inscricao.getParticipante().getNome());
+									}
+								}
+								else{
+									out.println("sem inscrições");
+								}
+
+	         			}%>
 	         		</table>
+	         		<%}else{
+	         			out.println("Não existe inscrito");
+	         		}%>
 	         	</div>
 	         	
 	         	<div id="login" align="center"><input type="button" value="Criar nova atividade"/></div>

@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.Atividade;
 import models.Inscricao;
-import models.User;
 import models.Usuario;
 
 public class InscricoesDAO {
@@ -75,5 +76,35 @@ public class InscricoesDAO {
 				return false;
 			}
 	}
+	
+	public static List<Inscricao> listaDeInscricaoAtividade(Atividade a){
+		
+		PreparedStatement stmt;
+		List<Inscricao> inscricoes = new ArrayList<Inscricao>();
+		try {
+			Connection con = ConnectionMannager.getConnetion();
+			stmt = con.prepareStatement("select * from inscricao where atividade_pk=" + a.getIdAtividade());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				
+				Inscricao inscricao = new Inscricao();
+				inscricao.setParticipante(UsuarioDAO.pegarUsuario(rs.getInt("usuario_pk")));
+				inscricoes.add(inscricao);
+
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(inscricoes.isEmpty())
+			return null;
+		else
+			return inscricoes;
+		
+	}
+	
 	
 }

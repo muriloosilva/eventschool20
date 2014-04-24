@@ -29,7 +29,7 @@
 	<div id="principal">
 		 <div id="top"></div>
 		 <div id="menuHeader">
-         	<a id="eventos" class="fontMenu" href="#">Eventos</a>
+         	<a id="eventos" class="fontMenu" href="/EventSchool/participante/home.jsp">Eventos</a>
            	<a id="contato" class="fontMenu" href="#">Contato</a>
          </div>
          <div id="user">
@@ -55,7 +55,7 @@
 	         	<div class="fontValor"><%=evento.getDataFimFormatada() %></div>     	
 	         	        	         	                  	
 	         	<div class="fontTitulo">Palestras:</div> 
-	         	
+	         	<div id="tabelaAtividade">
 	         	<%
 	         	
          		List<Atividade> listaPalestrasEvento = AtividadeDAO.listaDePalestrasEvento(idEvento);
@@ -63,7 +63,7 @@
 				
 				%>
 				
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 						<tr>
 	         				<td class="col1"><div class="fontTituloTabela">Nome</div></td>
@@ -106,6 +106,7 @@
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Minicursos:</div>
+	         	<div id="tabelaAtividade">
 	         	<%
 	         	
          		List<Atividade> listaMinicursoEvento = AtividadeDAO.listaDeMinicursoEvento(idEvento);
@@ -113,7 +114,7 @@
 				
 				%>
 				
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 						<tr>
 	         				<td class="col1"><div class="fontTituloTabela">Nome</div></td>
@@ -156,6 +157,7 @@
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Oficinas:</div>
+	         	<div id="tabelaAtividade">
 	         	<%
 	         	
          		List<Atividade> listaOficinasEvento = AtividadeDAO.listaDeOficinaEvento(idEvento);
@@ -163,7 +165,7 @@
 				
 				%>
 				
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 						<tr>
 	         				<td class="col1"><div class="fontTituloTabela">Nome</div></td>

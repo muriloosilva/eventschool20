@@ -10,10 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import models.User;
 import models.Usuario;
 
 public class FiltroSegurancaAdministrador implements Filter{ 
@@ -24,7 +22,7 @@ public class FiltroSegurancaAdministrador implements Filter{
 		
 		HttpSession session = ((HttpServletRequest)req).getSession();
 		Usuario usuario = (Usuario)session.getAttribute("usuario");
-		if(usuario!=null && usuario.isLogado() && usuario.getPapel().equals(Usuario.papelParticipante)){
+		if(usuario!=null && usuario.isLogado() && usuario.getPapel().equals(Usuario.papelAdmin)){
 			chain.doFilter(req, res);
 			
 		}else{

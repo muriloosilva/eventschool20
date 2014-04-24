@@ -35,6 +35,7 @@ public class AtividadeDAO {
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
+			System.out.println(e);
 			return false;
 		}
 		return true;
