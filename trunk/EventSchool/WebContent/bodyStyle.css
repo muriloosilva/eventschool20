@@ -1,0 +1,274 @@
+/* CSS Document */
+
+#bannerPrincipal{
+	position:absolute;
+	width:1000px;
+	height:516px;
+	left:0px;
+	top:0px;
+	background:black url(imagens/banner_s1.png);
+}
+
+#corpo{
+	position:absolute;
+	width:1000px;
+	height:1800px;
+	left:0px;
+	top:170px;
+	background:white;
+}
+
+#menuBody{
+	position:absolute;
+	width:221px;
+	height:1260px;
+	top:516px;
+	margin-top:10px;
+	margin-left:10px;
+	border-color:rgb(153,153,153);
+	border-style:solid;
+	border-width:1px;
+}
+
+#listaProdutos{
+	position:absolute;
+	top:516px;
+	width:752px;
+	height:1260px;
+	left:248px;
+	margin-top:10px;
+	border-color:rgb(153,153,153);
+	border-style:solid;
+	border-width:1px;
+}
+
+#categoriaLeft{
+	position:absolute;
+	width:5px;
+	height:25px;
+	background: black url(imagens/corpo_gradiente_left_s1.png);
+	left:-1px;
+	top:-1px;
+}
+
+#categoriaCenter{
+	position:absolute;
+	width:211px;
+	height:25px;
+	left:4px;
+	background: black url(imagens/corpo_gradiente_center_s1.png);
+	top:-1px;
+}
+
+#categoriaRight{
+	position:absolute;
+	width:7px;
+	height:25px;
+	left:215px;
+	background: black url(imagens/corpo_gradiente_right_s1.png);
+	top:-1px;
+}
+
+.produtosDestaqueLeft{
+	position:absolute;
+	width:5px;
+	height:25px;
+	background: black url(imagens/corpo_gradiente_left_s1.png);
+	left:-1px;
+	top:-1px;
+}
+
+.produtosDestaqueCenter{
+	position:absolute;
+	width:742px;
+	height:25px;
+	left:4px;
+	background: black url(imagens/corpo_gradiente_center_s1.png);
+	top:-1px;
+}
+
+.produtosDestaqueRight{
+	position:absolute;
+	width:7px;
+	height:25px;
+	left:746px;
+	background: black url(imagens/corpo_gradiente_right_s1.png);
+	top:-1px;
+}
+
+#labelCategoria{
+	position:absolute;
+	left:8px;
+	top:4px;
+}
+
+#ulCategoria{
+	list-style-type:none;
+	padding-left:20px;
+	padding-right:5px;
+}
+
+#ulItensCategoria{
+	list-style-type:none;
+	padding-left:16px;
+	font-size:12px;
+	padding-bottom: 8px;
+	padding-top:2px;
+}
+
+.liCategoria{
+	padding-bottom:2px;
+}
+
+#categorias{
+	position:absolute;;
+	top:25px;
+}
+
+.fontItemMenu{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#999;
+	text-decoration:none;
+	cursor:pointer;	
+}
+
+.fontItemMenu:hover{
+	color:#999;
+	text-decoration:underline;
+}
+
+#produtosEmDestaqueBody{
+	position:absolute;
+	top:20px;
+}
+
+.ulListaProdutos{
+	list-style-type:none;
+	padding-left:10px;
+	padding-right:10px;
+	padding-right:20px;
+}
+
+.liListaProdutos{
+	/*lista em linha*/
+	display:inline-block;
+	width:150px;
+	padding-left:42px;
+	padding-right:42px;
+	padding-bottom:20px;
+	padding-top:10px;
+	height:350px;
+}
+
+.produto{
+	position:absolute;
+	width:150px;
+	height:350px;
+}
+
+.produtoIMG{
+	position:absolute;
+	width:150px;
+	height:150px;
+	border:0px;
+}
+
+.produtoInfo{
+	position:absolute;
+}
+
+.produtoDescricao{
+	position:absolute;
+	width:150px;
+	height:40px;
+	top:205px;
+	left:8px;
+}
+
+.produtoMaisDetalhes{
+	position:absolute;
+	background: url(http://img.submarino.com.br/novosuba/catalog/img/sprite_buttons.png) no-repeat 1000px 1000px;
+	cursor: pointer;
+	text-align:center;
+	background-position: -136px -315px;
+	height: 18px;
+	width: 91px;
+	top:175px;
+	left:25px;
+}
+
+.produtoPreco{
+	position:absolute;
+	width:150px;
+	height:40px;
+	top:270px;
+	left:8px;
+}
+
+.produtoPrecoDesconto{
+	color: #39c61f;
+	font: 68.75%/1.25 arial, verdana, helvetica, sans-serif;
+}
+
+.produtoPrecoAnterior{
+	font: 68.75%/1.25 arial, verdana, helvetica, sans-serif;
+	color: #666;
+}
+
+.produtoPrecoAtual{
+	font-size: 1em !important;
+	font: 68.75%/1.25 arial, verdana, helvetica, sans-serif;
+	color: #666;
+	font-weight: bold;
+}
+
+.produtoPrecoParcelado{
+	font: 68.75%/1.25 arial, verdana, helvetica, sans-serif;
+	color: #00ADEF;
+	font-weight: bold;
+	display: block;
+}
+
+#produtosRecomendados{
+	position:absolute;
+	width:754px;
+	height:25px;
+	top:825px;
+	left:0px;
+}
+
+#listaProdutosRecomendados{
+	position:absolute;
+	width:754px;
+	height:400px;
+	top:28px;
+	left:0px;
+}
+
+.descricaoProdutoFull{
+	padding-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:10px;
+}
+
+.produtoImgFull{
+	width:250px;
+	height:250px;
+	padding-left:30px;
+		
+}
+
+.visualizaProduto{
+	position:absolute;
+	}
+
+.produtoPrecoFull{
+	position:absolute;
+	left:300px;
+	width:300px;
+	height:300px;
+	background-color:black;
+}

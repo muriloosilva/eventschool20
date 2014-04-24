@@ -1,0 +1,187 @@
+@CHARSET "ISO-8859-1";
+body {
+	background: url(/EventSchool/imagens/back.png) !important;
+	background-position: center;
+	background-repeat: repeat;
+}
+
+#principal{
+	width:1000px;
+	height: 500px; 
+	max-height: 10000px;
+	margin:auto;
+	text-align:left;
+	position:relative;
+}
+
+#top{
+	width:100%;
+	height:200px;
+	background: url(/EventSchool/imagens/logo1.png);
+	background-position: center;
+	position:absolute;
+}
+
+#menuHeader{
+	position:absolute;
+	width:100%;
+	height:60px;
+	top:145px;
+	background-color:#132;
+	opacity:0.65;
+	-moz-opacity: 0.65;
+	filter: alpha(opacity=65);
+}
+
+#eventos{
+	position:absolute;
+	width:156px;
+	height:22px;
+	left:380px;
+	top:16px;
+}
+
+#contato{
+	position:absolute;
+	width:100px;
+	height:22px;
+	left:552px;
+	top:16px;
+}
+
+
+.fontMenu{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:22px;
+	font-weight:bold;
+	color:#1c9;
+	text-decoration:none;
+	cursor:pointer;	
+}
+
+.fontMenu:hover{
+	color:#1c9;
+	text-decoration:underline;
+}
+
+#corpo{
+	position:absolute;
+	width:1000px;
+	left:0px;
+	top:235px;
+	background:white;
+	opacity:0.65;
+	-moz-opacity: 0.65;
+	filter: alpha(opacity=65);
+	margin-bottom: 100px;
+}
+
+#tabelaProgramacao{
+	width:800px;
+	background: rgba(211, 211, 211, 0.61);  
+}
+
+.fontTituloTabela{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#111;
+	text-decoration:none;
+}
+
+.fontTitulo{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:22px;
+	font-weight:bold;
+	color:#111;
+	text-decoration:none;
+	padding-bottom: 50px;
+}
+
+.col1{
+	text-align: left;
+	padding-left: 7px;
+	width: 280px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.col2{
+	text-align: left;
+	padding-left: 7px;
+	width: 220px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.col3{
+	text-align: left;
+	padding-left: 7px;
+	width: 165px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.col4{
+	text-align: left;
+	padding-left: 7px;
+	width: 105px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+#lista{
+	width:800px; 
+	left:100px;
+	top:71px;	 
+	height: 100%;
+	margin-right: 100px;
+	margin-left: 100px; 
+	margin-bottom:50px;
+	margin-top: 50px;  
+	
+}
+
+#user{
+	width: 100%;
+	height: 30px; 
+	top:205px; 
+	position: absolute; 
+	background: rgba(0, 177, 184, 0.54);
+}
+
+#name{
+	position: absolute;
+	width:100px; 
+	left:774px;
+	top:5px;	
+	padding-left:5px; 
+	padding-right:5px; 
+}
+
+#conta{
+	position: absolute;
+	width:80px; 
+	left:885px;
+	top:5px;	
+	padding-left:5px; 
+	padding-right:5px; 
+}
+
+#sair{
+	position: absolute;
+	width:80px;  
+	left:951px;
+	top:5px;	
+	padding-left:5px; 
+	padding-right:5px; 
+}
+
+.fontUser{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	color:#ECF1CE;
+	text-decoration:none;
+	cursor:pointer;	
+}
