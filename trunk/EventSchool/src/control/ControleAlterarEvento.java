@@ -22,8 +22,8 @@ import DB.EventoDAO;
 import DB.UsuarioDAO;
 
 
-@WebServlet(name = "cadastrarEvento", urlPatterns = { "/cadastrarEvento" })
-public class ControleCadastroEvento extends HttpServlet {
+@WebServlet(name = "alterarEvento", urlPatterns = { "/alterarEvento" })
+public class ControleAlterarEvento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
@@ -34,6 +34,7 @@ public class ControleCadastroEvento extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int cod = Integer.parseInt(request.getParameter("cod"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
 		String local = request.getParameter("local");
@@ -45,26 +46,26 @@ public class ControleCadastroEvento extends HttpServlet {
 		String email = request.getParameter("email");
 
 		
-		Evento eventoCadastro = new Evento();
-		
-		eventoCadastro.setNome(nome);
-		eventoCadastro.setDescricao(descricao);
-		eventoCadastro.setLocal(local);
+		Evento eventoalterar = new Evento();
+		eventoalterar.setId_evento(cod);
+		eventoalterar.setNome(nome);
+		eventoalterar.setDescricao(descricao);
+		eventoalterar.setLocal(local);
 		
 		try {
-			eventoCadastro.setDataInicio(new Date(new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio).getTime()));
-			eventoCadastro.setDataFim(new Date(new SimpleDateFormat("dd/MM/yyyy").parse(dataFim).getTime()));
-			eventoCadastro.setDataInicioInscricoes(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(dataInicioInscricoes).getTime()));
-			eventoCadastro.setDataFimInscricoes(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(dataFimInscricoes).getTime()));
+			eventoalterar.setDataInicio(new Date(new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio).getTime()));
+			eventoalterar.setDataFim(new Date(new SimpleDateFormat("dd/MM/yyyyy").parse(dataFim).getTime()));
+			eventoalterar.setDataInicioInscricoes(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(dataInicioInscricoes).getTime()));
+			eventoalterar.setDataFimInscricoes(new Timestamp(new SimpleDateFormat("dd/MM/yyyy").parse(dataFimInscricoes).getTime()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		eventoCadastro.setTelefone(telefone);
-		eventoCadastro.setEmail(email);
+		eventoalterar.setTelefone(telefone);
+		eventoalterar.setEmail(email);
 		
-		EventoDAO.adicionarEvento(eventoCadastro);
+		EventoDAO.alterarEvento(eventoalterar);
 		RequestDispatcher view = request.getRequestDispatcher("/admin/eventos.jsp");
 		view.forward(request, response);
 		

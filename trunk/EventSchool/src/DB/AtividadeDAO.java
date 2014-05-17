@@ -248,7 +248,7 @@ public static List<Atividade> listaDeOficinaEvento(int id){
 		
 		try {
 			Connection con = ConnectionMannager.getConnetion();
-			PreparedStatement stmt = con.prepareStatement("delete * from atividade where "
+			PreparedStatement stmt = con.prepareStatement("delete from atividade where "
 					+ "atividade_pk=?");
 			stmt.setInt(1, atividade.getIdAtividade());
 			stmt.execute();

@@ -114,7 +114,7 @@ public class EventoDAO {
 		
 		String sql = "update evento set nome=?, descricao=?, local=?," +
 				"data_inicio=?, data_fim=?, data_inicio_inscricoes=?"
-				+ ", data_fim_inscricoes=?, tefefone=?, email=?"
+				+ ", data_fim_inscricoes=?, telefone=?, email=?"
 				+ " where evento_pk=?";
 		try {
 			Connection con = ConnectionMannager.getConnetion();
@@ -135,6 +135,7 @@ public class EventoDAO {
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
+			System.out.println(e);
 			return false;
 		}
 		return true;
