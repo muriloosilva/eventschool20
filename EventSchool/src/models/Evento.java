@@ -67,11 +67,17 @@ public class Evento {
 	public Timestamp getDataInicioInscricoes() {
 		return dataInicioInscricoes;
 	}
+	public String getDataInicioInscricoesFormatado() {
+		return DataHourFormat.formatarData(new Date(dataInicioInscricoes.getTime()));
+	}
 	public void setDataInicioInscricoes(Timestamp dataInicioInscricoes) {
 		this.dataInicioInscricoes = dataInicioInscricoes;
 	}
 	public Timestamp getDataFimInscricoes() {
 		return dataFimInscricoes;
+	}
+	public String getDataFimInscricoesFormatado() {
+		return DataHourFormat.formatarData(new Date(dataFimInscricoes.getTime()));
 	}
 	public void setDataFimInscricoes(Timestamp dataFimInscricoes) {
 		this.dataFimInscricoes = dataFimInscricoes;

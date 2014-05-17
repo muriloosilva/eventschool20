@@ -22,7 +22,7 @@
          <div id="user">
          	<div id="name" class="fontUser">Olá, <%=usuario.getNome()%></div> 
          	<div id="conta" class="fontUser">Conta</div>
-         	<div id="sair" class="fontUser">Sair</div>
+         	<div id="sair" class="fontUser"><a class="fontUser" href="/EventSchool/sair">Sair</a></div>
          </div>
          <div id="corpo">
          	<form method="POST" action="/EventSchool/cadastrarEvento">

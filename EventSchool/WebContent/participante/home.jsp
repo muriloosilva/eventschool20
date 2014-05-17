@@ -28,14 +28,14 @@
          <div id="user">
          	<div id="name" class="fontUser">Olá, <%=usuario.getNome() %></div> 
          	<div id="conta" class="fontUser">Conta</div>
-         	<div id="sair" class="fontUser">Sair</div>
+         	<div id="sair" class="fontUser"><a class="fontUser" href="/EventSchool/sair">Sair</a></div>
          </div>
          <div id="corpo">
          	<div align="center" id="lista">
 	         	<div class="fontTitulo">Programação</div>
 	         	<div id="tabelaProgramacao">
 	         		<table>
-	         		
+	         		<tr><td class="col1"><div class="fontTituloTabela">Nome</div></td><td class="col2"><div class="fontTituloTabela">Local</div></td><td class="col3"><div class="fontTituloTabela">Data Início</div></td></tr>
 	         		<%                    
                    List<Evento> listaDeEventos = EventoDAO.listaDeEventos();
                    if(listaDeEventos != null){
@@ -44,7 +44,7 @@
                  		  Evento evento = ic.next();
                 	      
                 	%>
-	         			<tr><td class="col1"><div class="fontTituloTabela">Nome</div></td><td class="col2"><div class="fontTituloTabela">Local</div></td><td class="col3"><div class="fontTituloTabela">Data Início</div></td><td class="col4"><div class="fontTituloTabela">Opções</div></td></tr>
+	         			
 	         			<tr><td class="col1"><%=evento.getNome()%></td> <td class="col2"><%=evento.getLocal()%></td><td class="col3"><%=evento.getDataInicioFormatada()%></td> <td class="col4"><a href="/EventSchool/participante/evento.jsp?cod=<%=evento.getId_evento()%>">acessar</a></td></tr>
 	         		<%}}
                  	 else{

@@ -33,12 +33,12 @@
          <div id="user">
          	<div id="name" class="fontUser">Olá, <%=usuario.getNome() %></div> 
          	<div id="conta" class="fontUser">Conta</div>
-         	<div id="sair" class="fontUser">Sair</div>
+         	<div id="sair" class="fontUser"><a class="fontUser" href="/EventSchool/sair">Sair</a></div>
          </div>
          <div id="corpo">
          	<div align="center" id=menuLateral>
          		<div id="atividade"><a  class="fontMenuLateral" href="#">Atividades</a></div><br>
-         		<div id="configuracaoEvento"><a  class="fontMenuLateral">Config. Evento</a></div><br>
+         		<div id="configuracaoEvento"><a  class="fontMenuLateral" href="/EventSchool/admin/configurarEvento.jsp?cod=<%=idEvento%>">Config. Evento</a></div><br>
          		<div id="inscritos"><a  class="fontMenuLateral" href="/EventSchool/admin/inscritos.jsp?cod=<%=idEvento%>">Inscritos</a></div><br>
          	</div>
          	<div id="loginUser">
@@ -80,7 +80,7 @@
 	         				<td class="col3"><%=atividade.getHoraInicio() %></td>
 	         				<td class="col4"><%=atividade.getHoraFim() %></td>
 	         				<td class="col5"><%=atividade.getVagas() %></td>
-	         				<td class="col6"><a href="/EventSchool/alterarAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">alterar</a> <a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
+	         				<td class="col6"><a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
 	         				</td>
 	         					
 					    </tr>
@@ -124,7 +124,7 @@
 	         				<td class="col3"><%=atividade.getHoraInicio() %></td>
 	         				<td class="col4"><%=atividade.getHoraFim() %></td>
 	         				<td class="col5"><%=atividade.getVagas() %></td>
-	         				<td class="col6"><a href="/EventSchool/alterarAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">alterar</a> <a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
+	         				<td class="col6"><a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
 					    </tr>
 						<%}%>
 	         		</table>
@@ -166,7 +166,7 @@
 	         				<td class="col3"><%=atividade.getHoraInicio() %></td>
 	         				<td class="col4"><%=atividade.getHoraFim() %></td>
 	         				<td class="col5"><%=atividade.getVagas() %></td>
-	         				<td class="col6"><a href="/EventSchool/alterarAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">alterar</a> <a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
+	         				<td class="col6"><a href="/EventSchool/excluirAtividade?cod=<%=idEvento%>&at=<%=atividade.getIdAtividade()%>">excluir</a>
 					    </tr>
 						<%}%>
 	         		</table>

@@ -34,12 +34,12 @@
          <div id="user">
          	<div id="name" class="fontUser">Olá, <%=usuario.getNome() %></div> 
          	<div id="conta" class="fontUser">Conta</div>
-         	<div id="sair" class="fontUser">Sair</div>
+         	<div id="sair" class="fontUser"><a class="fontUser" href="/EventSchool/sair">Sair</a></div>
          </div>
          <div id="corpo">
          	<div align="center" id=menuLateral>
          		<div id="atividade"><a  class="fontMenuLateral" href="/EventSchool/admin/gerencia.jsp?cod=<%=idEvento%>">Atividades</a></div><br>
-         		<div id="configuracaoEvento"><a  class="fontMenuLateral">Config. Evento</a></div><br>
+         		<div id="configuracaoEvento"><a  class="fontMenuLateral" href="/EventSchool/admin/configurarEvento.jsp?cod=<%=idEvento%>">Config. Evento</a></div><br>
          		<div id="inscritos"><a  class="fontMenuLateral" href="#">Inscritos</a></div><br>
          	</div>
          	<div id="loginUser">
@@ -51,13 +51,14 @@
          		      		
          		
          		<div class="fontTitulo">Palestras:</div>
+         		<div id="tabelaAtividade">
          		<%
          		List<Atividade> listaPalestrasEvento = AtividadeDAO.listaDePalestrasEvento(idEvento);
 				if(listaPalestrasEvento != null){ 
 				
 				%>
 				   	
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 	         			<%
  	
@@ -85,21 +86,22 @@
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Minicursos:</div>
+	         	<div id="tabelaAtividade">
 	         	
 	         	<%
-         		List<Atividade> listaPalestrasMinicurso = AtividadeDAO.listaDeMinicursoEvento(idEvento);
-				if(listaPalestrasEvento != null){ 
+         		List<Atividade> listaMinicursoEvento = AtividadeDAO.listaDeMinicursoEvento(idEvento);
+				if(listaMinicursoEvento != null){ 
 				
 				%>
 	         	
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 	         			<%
  	
-						Iterator<Atividade> it = listaPalestrasMinicurso.iterator();
+						Iterator<Atividade> it = listaMinicursoEvento.iterator();
 							while(it.hasNext()){
 								Atividade atividade = it.next();
-								out.println("<br><br>Palestra: " + atividade.getNome());
+								out.println("<br><br>Minicurso: " + atividade.getNome());
 								List<Inscricao> listaInscricaoAtividade =  InscricoesDAO.listaDeInscricaoAtividade(atividade);
 								if(listaInscricaoAtividade!= null){
 									Iterator<Inscricao> i = listaInscricaoAtividade.iterator();
@@ -120,21 +122,21 @@
 	         	</div>
 	         	
 	         	<div class="fontTitulo">Oficinas:</div>
-	         	
+	         	<div id="tabelaAtividade">
 	         	<%
-         		List<Atividade> listaPalestrasOficinas = AtividadeDAO.listaDeOficinaEvento(idEvento);
-				if(listaPalestrasEvento != null){ 
+         		List<Atividade> listaOficinaEvento = AtividadeDAO.listaDeOficinaEvento(idEvento);
+				if(listaOficinaEvento != null){ 
 				
 				%>
 	         	
-	         	<div id="tabelaAtividade">
+	         	
 	         		<table>
 	         			<%
  	
-						Iterator<Atividade> it = listaPalestrasEvento.iterator();
+						Iterator<Atividade> it = listaOficinaEvento.iterator();
 							while(it.hasNext()){
 								Atividade atividade = it.next();
-								out.println("<br><br>Palestra: " + atividade.getNome());
+								out.println("<br><br>Oficina: " + atividade.getNome());
 								List<Inscricao> listaInscricaoAtividade =  InscricoesDAO.listaDeInscricaoAtividade(atividade);
 								if(listaInscricaoAtividade!= null){
 									Iterator<Inscricao> i = listaInscricaoAtividade.iterator();
